@@ -1,0 +1,16 @@
+@import "./base";
+@import "~bootstrap/scss/bootstrap";
+@import "./global";
+@import "./components";
+@import "./pages";
+
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "./bootstrap-override";
+
+[dir='rtl'] .slick-slide
+{
+    float: left !important;
+}

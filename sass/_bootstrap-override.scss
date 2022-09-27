@@ -1,0 +1,103 @@
+ol,
+ul {
+  padding-left: 0;
+}
+
+.opacity {
+  &-95 {
+    opacity: 95%;
+  }
+}
+
+.end {
+  &-2 {
+    right: 20px;
+  }
+  &-n25 {
+    right: -25%;
+  }
+}
+
+.start {
+  &-2 {
+    right: 20px;
+  }
+  &-n25 {
+    right: -25%;
+  }
+}
+
+.bottom {
+  &-2 {
+    bottom: 20px;
+  }
+}
+
+.text-start {
+  &[dir="ltr"] {
+    text-align: right !important;
+  }
+}
+
+.text-end {
+  &[dir="ltr"] {
+    text-align: left !important;
+  }
+}
+
+.float-start {
+  &[dir="ltr"] {
+    float: right !important;
+  }
+}
+
+.w-85 {
+  width: 85%;
+}
+
+.rounded {
+  &-1 {
+    border-radius: 8px !important;
+  } //tabs panel buttons dropdowns textarea
+
+  &-2 {
+    border-radius: 10px !important;
+  } // marquee
+
+  &-3 {
+    border-radius: 14px !important;
+  } // about cards input
+
+  &-4 {
+    border-radius: 20px !important;
+  } // Cards
+
+  &-5 {
+    border-radius: 24px !important;
+  } // btn-label
+}
+
+.input-group {
+  :nth-child(1) {
+    border-radius: 0;
+    &[dir="rtl"] {
+      border-top-right-radius: 8px !important;
+      border-bottom-right-radius: 8px !important;
+    }
+    &[dir="ltr"] {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+  }
+  :nth-child(3) {
+    border-radius: 0;
+    &[dir="rtl"] {
+      border-top-left-radius: 8px !important;
+      border-bottom-left-radius: 8px !important;
+    }
+    &[dir="ltr"] {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}

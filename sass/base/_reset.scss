@@ -1,0 +1,55 @@
+html {
+  min-width: 320px;
+  overflow-x: hidden;
+  &[dir="rtl"] {
+    direction: rtl;
+  }
+}
+
+html.theme-dark{
+  background-color: theme-color(darkbg);
+}
+html.theme-light{
+  background-color: theme-color(lightbg);
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  line-height: unset !important;
+  touch-action: pan-x pan-y;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+a,
+button,
+textarea,
+input,
+select {
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    outline: 0 !important;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+    -webkit-box-shadow: none !important;
+  }
+}
+
+textarea {
+  resize: none !important;
+}
+
+fieldset{
+  border-color: inherit !important;
+}
+.MuiAutocomplete-tag{
+  color: inherit !important;
+  background-color: rgba(128, 128, 128, 0.5) !important;
+}

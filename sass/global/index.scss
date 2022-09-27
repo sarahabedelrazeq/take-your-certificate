@@ -1,0 +1,194 @@
+a,
+svg,
+button,
+.borrow_form,
+.slide_text {
+  -webkit-transition: all 250ms ease;
+  -moz-transition: all 250ms ease;
+  -ms-transition: all 250ms ease;
+  -o-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+
+
+.form-control {
+  &:focus {
+    border-color: theme-color(primary) !important;
+    z-index: unset !important;
+  }
+}
+
+.btn-outline-primary-hover {
+  &:hover,
+  &:active,
+  &:focus {
+    color: theme-color(primary);
+    background-color: transparent;
+  }
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 99999;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+.svg-fill {
+  fill: theme-color(light3);
+
+  * {
+    fill: theme-color(light3);
+  }
+
+  &-light4 {
+    fill: theme-color(light4);
+
+    * {
+      fill: theme-color(light4);
+    }
+  }
+
+  &-primary {
+    fill: theme-color(primary);
+
+    * {
+      fill: theme-color(primary);
+    }
+  }
+
+  &-black {
+    fill: theme-color("black");
+
+    * {
+      fill: theme-color("black");
+    }
+  }
+
+  &-white {
+    fill: white;
+    * {
+      fill: white;
+    }
+  }
+}
+
+*:focus-visible {
+  outline: inset !important;
+}
+
+.rotated {
+  transform: scaleX(-1);
+
+  &[dir="rtl"] {
+    transform: scaleX(1);
+  }
+}
+
+.flipped {
+  transform: rotate(180deg);
+}
+
+.reversed {
+  &[dir="rtl"] {
+    transform: rotate(180deg);
+  }
+}
+
+.z-100 {
+  z-index: 100;
+}
+
+.column-gap {
+  &-2 {
+    column-gap: 12px;
+  }
+  &-4 {
+    column-gap: 24px;
+  }
+}
+
+.fw-medium {
+  font-weight: normal !important;
+  font-weight: 500 !important;
+}
+.avatar {
+  background-color: #ccd9e0;
+}
+
+.phone_number {
+  direction: ltr;
+  display: inline-block;
+}
+
+*:focus-visible {
+  outline: inset !important;
+  outline-width: 0 !important;
+}
+
+.filter_hover {
+  -webkit-filter: brightness(95%);
+  -moz-filter: brightness(95%);
+  -o-filter: brightness(95%);
+  -ms-filter: brightness(95%);
+  filter: brightness(95%);
+  transition: filter 250ms linear;
+
+  &:hover {
+    -webkit-filter: brightness(105%);
+    -moz-filter: brightness(105%);
+    -o-filter: brightness(105%);
+    -ms-filter: brightness(105%);
+    filter: brightness(105%);
+  }
+}
+
+input,
+textarea,
+select,
+button {
+  & ~ .absolute-arrow {
+    position: absolute;
+    top: calc(50% - 10px);
+
+    &[dir="ltr"] {
+      right: 24px;
+    }
+    &[dir="rtl"] {
+      left: 24px;
+    }
+  }
+}
+
+.cut-text {
+  &-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  &-2 {
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  &-3 {
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  &-4 {
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+}
