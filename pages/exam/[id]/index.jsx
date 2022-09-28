@@ -6,8 +6,8 @@ import * as yup from "yup";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserName } from "store/app";
-import styles from "styles/Home.module.css";
 import Layout from "components/Layout";
+import Hero from "components/Hero";
 
 export default function Exam() {
   const [exam, setExam] = React.useState({});
@@ -65,16 +65,7 @@ export default function Exam() {
   return (
     <Layout loading={loading}>
       <section className="mb-5">
-        <Container>
-          <Row>
-            <Col xs={12}>
-              <h1 className={styles.title}>{exam.title}</h1>
-            </Col>
-            <Col xs={12}>
-              <p className={styles.description}>{exam.description}</p>
-            </Col>
-          </Row>
-        </Container>
+        <Hero title={exam.title} description={exam.description} />
       </section>
       <section>
         <Container>

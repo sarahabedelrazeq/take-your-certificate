@@ -3,7 +3,6 @@ import { Provider } from "react-redux";
 import store, { persistor } from "../store";
 import "bootstrap/dist/css/bootstrap.css";
 import "../sass/index.scss";
-import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (

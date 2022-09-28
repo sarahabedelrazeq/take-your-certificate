@@ -261,3 +261,8 @@ button {
     font-weight: 500;
   }
 }
+ 
+.exam-card:hover{
+  color: theme-color(primary) !important;
+  border-color: theme-color(primary) !important;
+}
