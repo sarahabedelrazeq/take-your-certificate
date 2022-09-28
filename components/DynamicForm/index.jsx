@@ -6,14 +6,19 @@ import TransitionInput from "./fields/TransitionInput";
 import AutocompleteInput from "./fields/AutocompleteInput";
 import Input from "./fields/Input";
 import ThemeTextField from "./fields/ThemeTextField";
+import RadioInput from "./fields/RadioInput";
 
 function DynamicForm({ fields, defaultValues, schema, onSubmit, submitText }) {
   const methods = useForm({
     defaultValues: defaultValues ? { ...defaultValues } : {},
     resolver: yupResolver(schema),
   });
-  const { handleSubmit, watch } = methods;
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = methods;
 
+  console.log("errors", errors);
   return (
     <FormProvider {...methods}>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -21,20 +26,26 @@ function DynamicForm({ fields, defaultValues, schema, onSubmit, submitText }) {
           {Object.values(fields)?.map((field, index) =>
             field.component === "transition-input" ? (
               <TransitionInput
-                field={field}
                 key={index}
+                field={field}
                 ThemeTextField={ThemeTextField}
               />
             ) : field.component === "autocomplete" ? (
               <AutocompleteInput
-                field={field}
                 key={index}
+                field={field}
+                ThemeTextField={ThemeTextField}
+              />
+            ) : field.component === "radio" ? (
+              <RadioInput
+                key={index}
+                field={field}
                 ThemeTextField={ThemeTextField}
               />
             ) : (
               <Input
-                field={field}
                 key={index}
+                field={field}
                 ThemeTextField={ThemeTextField}
               />
             )

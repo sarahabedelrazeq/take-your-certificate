@@ -49,10 +49,10 @@ export default function AutocompleteInput({ field, ThemeTextField }) {
     <Col sm={6} xs={12}>
       <Form.Group controlId={field?.name}>
         <Row>
-          <Col xs={12} >
+          <Col xs={12}>
             {(valueDefault || valueDefault === null) && (
               <Autocomplete
-               // {...register(field?.name)}
+                // {...register(field?.name)}
                 multiple={field.multiple}
                 onChange={(event, newValue) => {
                   let formNewValue;
@@ -71,7 +71,6 @@ export default function AutocompleteInput({ field, ThemeTextField }) {
                   "border-danger": errors[field?.name],
                 })}
                 renderInput={(params) => {
-                  console.log("params", params)
                   return (
                     <ThemeTextField
                       {...params}
