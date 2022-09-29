@@ -1,15 +1,13 @@
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
-import store, { persistor } from "../store";
+import store from "../store";
 import "bootstrap/dist/css/bootstrap.css";
 import "../sass/index.scss";
 
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Component {...pageProps} />
-      </PersistGate>
+      <Component {...pageProps} />
     </Provider>
   );
 }

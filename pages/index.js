@@ -11,9 +11,118 @@ export default function Home() {
     let { data: exams, error } = await client.from("exams").select(`*`);
     if (!error) setExams(exams);
   }, []);
+
   React.useEffect(() => {
     getExams();
   }, [getExams]);
+
+  const setAnswers = async () => {
+    const questions = [
+      {
+        id: "2",
+        text: " ",
+        choices: ["MPAs", "DPAs", "CPAs", "SPAs"],
+        answer: 4,
+      },
+      {
+        id: "3",
+        text: " ",
+        choices: [
+          "Decorator pattern",
+          "Observer pattern",
+          "MVVM architecture pattern",
+          "MVC architecture pattern",
+        ],
+        answer: 3,
+      },
+      {
+        id: "4",
+        text: " ",
+        choices: ["True", "False"],
+        answer: 1,
+      },
+      {
+        id: "5",
+        text: " ",
+        choices: [
+          "[expression]",
+          "{{expressions}}",
+          "{{{expressions}}}",
+          "{expressions}",
+        ],
+        answer: 2,
+      },
+      {
+        id: "6",
+        text: " ",
+        choices: [
+          "ng-bind directive",
+          "ng-model directive",
+          "ng-init directive",
+          "ng-app directive",
+        ],
+        answer: 1,
+      },
+      {
+        id: "7",
+        text: " ",
+        choices: [
+          "it is a function that takes text as input",
+          "the lowercase filter converts a text to lowercase text",
+          "both a and b",
+          "none of the above",
+        ],
+        answer: 2,
+      },
+      {
+        id: "8",
+        text: " ",
+        choices: [
+          "it provides reusable components",
+          "it uses dependency injection and makes use of separation of concerns",
+          "it is unit-testable",
+          "all of the above",
+        ],
+        answer: 4,
+      },
+      {
+        id: "9",
+        text: " ",
+        choices: [
+          "an angular controller is used for displaying the data",
+          "an angular controller is used for controlling the data",
+          "both a and b",
+          "None of the above",
+        ],
+        answer: 2,
+      },
+      {
+        id: "10",
+        text: " ",
+        choices: [
+          "module(“app”,[])",
+          "var myModule=angular.module()",
+          "var myModule = new Module();",
+          "None of the above",
+        ],
+        answer: 1,
+      },
+    ];
+
+    for (let i = 0; i < questions.length; i++) {
+      let { data: answers, error } = await client
+        .from("answers")
+        .select(`*`)
+        .eq("text", questions[i]?.choices[questions[i].answer - 1]);
+
+      let { data: question } = await client
+        .from("questions")
+        .update({ answer_id: answers[0]?.id })
+        .eq("id", answers[0]?.question_id);
+
+      console.log("object :>> ", answers[0]?.id, answers[0]?.question_id);
+    }
+  };
 
   return (
     <Layout>

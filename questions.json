@@ -1,106 +1,45 @@
 [
   {
-    "id": "1",
-    "text": "React is also known as _____.",
-    "choices": ["ReactJS", "js library", "Both A. and B", "None of these"],
-    "answer": 3
+    "id": "2",
+    "text": " ",
+    "choices": [
+      " ",
+      " ",
+      " ",
+      " "
+    ],
+    "answer": 1
   },
   {
     "id": "2",
-    "text": "React is a ____.",
+    "text": " ",
     "choices": [
-      "Web development Framework",
-      "JavaScript Library",
-      "jQuery",
-      "Web Server"
-    ],
-    "answer": 2
-  },
-  {
-    "id": "3",
-    "text": "Which ReactJS function renders HTML to the web page?",
-    "choices": [
-      "render()",
-      "ReactDOM.render()",
-      "renders()",
-      "ReactDOM.renders()"
-    ],
-    "answer": 2
-  },
-  {
-    "id": "4",
-    "text": "JSX stands for _____.",
-    "choices": [
-      "JSON",
-      "JSON XML",
-      "JavaScript XML",
-      "JavaScript and AngularJS"
-    ],
-    "answer": 3
-  },
-  {
-    "id": "5",
-    "text": "JSX allows us to write _____.",
-    "choices": [
-      "jQuery in React",
-      "Angular Code in React",
-      "MySQL in React",
-      "HTML in React"
-    ],
-    "answer": 4
-  },
-  {
-    "id": "6",
-    "text": "What is the correct syntax to write expression in JSX?",
-    "choices": [
-      "[ expression ]",
-      "{ expression }",
-      "{{ expression }}",
-      "_expression"
-    ],
-    "answer": 2
-  },
-  {
-    "id": "7",
-    "text": "A class component must include the _______ statement.",
-    "choices": [
-      "extends React.Component",
-      "extends React",
-      "extends Component",
-      "extends React.Component.All"
+      " ",
+      " ",
+      " ",
+      " "
     ],
     "answer": 1
   },
   {
-    "id": "8",
-    "text": "What are Props?",
+    "id": "2",
+    "text": " ",
     "choices": [
-      "Props are arguments passed into React components",
-      "Props are functions in the ReactJS",
-      "Props are used to returns multiple values from the function",
-      "All of the above"
+      " ",
+      " ",
+      " ",
+      " "
     ],
     "answer": 1
   },
   {
-    "id": "9",
-    "text": "What does props stand for?",
+    "id": "2",
+    "text": " ",
     "choices": [
-      "Proper Arguments",
-      "Properties",
-      "Proper Return Values",
-      "All of the above"
-    ],
-    "answer": 2
-  },
-  {
-    "id": "10",
-    "text": "Which ReactJS command is used to create a new application?",
-    "choices": [
-      "create-react-app",
-      "new-react-app",
-      "create-new-reactapp",
-      "react-app"
+      " ",
+      " ",
+      " ",
+      " "
     ],
     "answer": 1
   }

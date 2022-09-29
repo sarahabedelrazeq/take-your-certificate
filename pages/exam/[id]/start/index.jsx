@@ -32,16 +32,21 @@ function Exam({ exam, questions }) {
 
   const fields = React.useMemo(() => {
     if (questions) {
-      const examFields = questions.map(({ id, title, text, answers }) => ({
-        name: `${id}`,
-        title: title,
-        placeholder: text,
-        id: "question" + id,
-        component: "radio",
-        required: true,
-        options: answers?.map(({ text, id }) => ({ label: text, value: id })),
-        defaultValue: "",
-      }));
+      const examFields = questions.map(
+        ({ id, title, text, answers, answer_id }) => ({
+          name: `${id}`,
+          title: title,
+          placeholder: text,
+          id: "question" + id,
+          component: "radio",
+          required: true,
+          options: answers?.map(({ text, id }) => ({
+            label: text,
+            value: id,
+          })),
+          defaultValue: "",
+        })
+      );
       return examFields;
     } else return {};
   }, [questions]);
@@ -92,13 +97,15 @@ function Exam({ exam, questions }) {
         size="lg"
       >
         <Modal.Header closeButton>
-          <Modal.Title>{result ? "Congratulations" : "Hard Luck"}</Modal.Title>
+          <Modal.Title className="text-black">
+            {result ? "Congratulations" : "Hard Luck"}
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="text-black">
           {result ? "Congratulations" : "Hard luck"}! your make is: {mark}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary">
+          <Button variant="secondary" className="text-white">
             <Link href="/">Back to exam page?</Link>
           </Button>
 
@@ -120,6 +127,7 @@ function Exam({ exam, questions }) {
     </Layout>
   );
 }
+
 export async function getServerSideProps({ query }) {
   let { data: exam, error: examError } = await client
     .from("exams")
