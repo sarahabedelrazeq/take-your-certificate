@@ -8,3 +8,7 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 @import "./bootstrap-override";
+
+input:-internal-autofill-selected {
+    background: transparent !important
+}
