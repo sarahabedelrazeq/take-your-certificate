@@ -10,5 +10,12 @@
 @import "./bootstrap-override";
 
 input:-internal-autofill-selected {
-    background: transparent !important
+    background-color: transparent !important
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    background-color: transparent !important
 }
