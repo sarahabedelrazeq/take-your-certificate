@@ -1,15 +1,17 @@
 html {
   min-width: 320px;
   overflow-x: hidden;
+
   &[dir="rtl"] {
     direction: rtl;
   }
 }
 
-html.theme-dark{
+html.theme-dark {
   background-color: theme-color(darkbg);
 }
-html.theme-light{
+
+html.theme-light {
   background-color: theme-color(lightbg);
 }
 
@@ -34,6 +36,7 @@ button,
 textarea,
 input,
 select {
+
   &:hover,
   &:focus,
   &:active,
@@ -48,10 +51,12 @@ textarea {
   resize: none !important;
 }
 
-fieldset{
+fieldset {
   border-color: inherit !important;
 }
-.MuiAutocomplete-tag{
+
+.MuiAutocomplete-tag {
   color: inherit !important;
   background-color: rgba(128, 128, 128, 0.5) !important;
 }
+

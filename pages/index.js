@@ -19,108 +19,77 @@ export default function Home() {
   const setAnswers = async () => {
     const questions = [
       {
-        id: "2",
-        text: " ",
-        choices: ["MPAs", "DPAs", "CPAs", "SPAs"],
-        answer: 4,
-      },
-      {
-        id: "3",
-        text: " ",
-        choices: [
-          "Decorator pattern",
-          "Observer pattern",
-          "MVVM architecture pattern",
-          "MVC architecture pattern",
+        question: "What type of framework is Next.js?",
+        answerOptions: [
+          { answer: "Frontend" },
+          { answer: "Backend" },
+          { answer: "FullStack", isCorrect: true },
+          { answer: "None of the above" },
         ],
-        answer: 3,
       },
       {
-        id: "4",
-        text: " ",
-        choices: ["True", "False"],
-        answer: 1,
-      },
-      {
-        id: "5",
-        text: " ",
-        choices: [
-          "[expression]",
-          "{{expressions}}",
-          "{{{expressions}}}",
-          "{expressions}",
+        question: "When was Next.js released?",
+        answerOptions: [
+          { answer: "20 September 2019" },
+          { answer: "14 January 2017" },
+          { answer: "25 October 2016", isCorrect: true },
+          { answer: "28 March 2018" },
         ],
-        answer: 2,
       },
       {
-        id: "6",
-        text: " ",
-        choices: [
-          "ng-bind directive",
-          "ng-model directive",
-          "ng-init directive",
-          "ng-app directive",
+        question: "Which CSS Framework are we using?",
+        answerOptions: [
+          { answer: "Bootstrap" },
+          { answer: "TailwindCSS", isCorrect: true },
+          { answer: "Chakra UI" },
+          { answer: "Bulma CSS" },
         ],
-        answer: 1,
       },
       {
-        id: "7",
-        text: " ",
-        choices: [
-          "it is a function that takes text as input",
-          "the lowercase filter converts a text to lowercase text",
-          "both a and b",
-          "none of the above",
+        question:
+          "Which class in Tailwind is used to set flex direction of column?",
+        answerOptions: [
+          { answer: "col" },
+          { answer: "col-flex" },
+          { answer: "flex-col", isCorrect: true },
+          { answer: "None of the above" },
         ],
-        answer: 2,
-      },
-      {
-        id: "8",
-        text: " ",
-        choices: [
-          "it provides reusable components",
-          "it uses dependency injection and makes use of separation of concerns",
-          "it is unit-testable",
-          "all of the above",
-        ],
-        answer: 4,
-      },
-      {
-        id: "9",
-        text: " ",
-        choices: [
-          "an angular controller is used for displaying the data",
-          "an angular controller is used for controlling the data",
-          "both a and b",
-          "None of the above",
-        ],
-        answer: 2,
-      },
-      {
-        id: "10",
-        text: " ",
-        choices: [
-          "module(“app”,[])",
-          "var myModule=angular.module()",
-          "var myModule = new Module();",
-          "None of the above",
-        ],
-        answer: 1,
       },
     ];
 
+    // let { data: question } = await client.from("answers").insert(
+    //   questions.map(({ question }, index) => ({
+    //     id: index + 21,
+    //     title: question,
+    //     text: question,
+    //     exam_id: 3,
+    //   }))
+    // );
+
     for (let i = 0; i < questions.length; i++) {
-      let { data: answers, error } = await client
-        .from("answers")
-        .select(`*`)
-        .eq("text", questions[i]?.choices[questions[i].answer - 1]);
+      for (let j = 0; j < questions[i]?.answerOptions.length; j++) {
+        let { data: answer } = await client.from("answers").insert([
+          {
+            text: questions[i]?.answerOptions[j]?.answer,
+            question_id: i + 21,
+          },
+        ]);
+        if (questions[i]?.answerOptions[j]?.isCorrect) {
+          let { data: question } = await client
+            .from("questions")
+            .update({ answer_id: answer?.id })
+            .eq("id", i + 21);
+        }
+      }
 
-      let { data: question } = await client
-        .from("questions")
-        .update({ answer_id: answers[0]?.id })
-        .eq("id", answers[0]?.question_id);
-
-      console.log("object :>> ", answers[0]?.id, answers[0]?.question_id);
+      // let { data: answers, error } = await client
+      //   .from("answers")
+      //   .select(`*`)
+      //   .eq("text", questions[i]?.choices[questions[i].answer - 1]);
+      // let { data: question } = await client
+      //   .from("questions")
+      //   .update({ answer_id: answers[0]?.id })
+      //   .eq("id", answers[0]?.question_id);
     }
   };
 
@@ -135,7 +104,7 @@ export default function Home() {
 
       <section>
         <Container>
-          <Row>
+          <Row className="gy-4">
             {exams.map(({ id, title, description }) => (
               <Col lg={4} xs={6} key={id}>
                 <div>
@@ -146,12 +115,12 @@ export default function Home() {
                     <Row>
                       <Col xs={12} className="mb-3">
                         <div className="w-100 d-flex justify-content-between">
-                          <h2>{title}</h2>
-                          <h2>&rarr;</h2>
+                          <h2 className="fs-3">{title}</h2>
+                          <h2 className="fs-3">&rarr;</h2>
                         </div>
                       </Col>
                       <Col xs={12}>
-                        <p>{description}</p>
+                        <p className="fs-5">{description}</p>
                       </Col>
                     </Row>
                   </a>

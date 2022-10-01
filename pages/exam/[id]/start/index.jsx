@@ -90,13 +90,13 @@ function Exam({ exam, questions }) {
       <Modal
         show={mark !== null}
         centered
-        onHide={() => {
-          setMark(null);
-          setResult(null);
-        }}
+        // onHide={() => {
+        //   setMark(null);
+        //   setResult(null);
+        // }}
         size="lg"
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton={false}>
           <Modal.Title className="text-black">
             {result ? "Congratulations" : "Hard Luck"}
           </Modal.Title>
